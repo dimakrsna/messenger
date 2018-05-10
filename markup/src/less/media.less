@@ -1,0 +1,418 @@
+//font-size
+@6: 0.375em;
+@7: 0.438em;
+@8: 0.5em;
+@9: 0.563em;
+@10: 0.625em;
+@11: 0.688em;
+@12: 0.75em;
+@13: 0.813em;
+@14: 0.875em;
+@15: 0.938em;
+@16: 1em;
+@17: 1.063em;
+@18: 1.125em;
+@19: 1.188em;  
+@20: 1.25em;
+@21: 1.313em;
+@22: 1.375em; 
+@23: 1.438em;
+@24: 1.5em;  
+@25: 1.563em;
+@26: 1.625em;
+@27: 1.688em;
+@28: 1.75em;
+@29: 1.813em;
+@30: 1.875em; 
+@31: 1.938em;
+@32: 2em;
+@33: 2.063em;
+@34: 2.125em;
+@35: 2.188em;
+@36: 2.25em;
+@37: 2.313em;
+@38: 2.375em;
+@39: 2.438em;
+@40: 2.5em;
+
+//colors
+@blue: #4990e2;
+@aqua: #aqua; 
+@grey: #f0f0f0;
+
+
+//MIXINS
+.transition(@duration : 0.2s;){
+	transition: @duration ease-out 
+} 
+
+.scale(@value){ 
+	transform: scale(@value) 
+} 
+
+.bg(@a: 0.2){	
+	background: rgba(0,0,0,@a) 
+}
+
+
+
+/*------------------------------
+	RESPONSIVE max-width: 1200px
+-------------------------------*/
+
+ 
+@media only screen and (max-width: 1200px) {
+
+
+	/*-----------------
+		HEADER 1200px
+	------------------*/
+	.header {
+		&__logo-wrap {
+			position: absolute;
+			top: 0;
+			left: -340px;
+			background: @blue;
+			z-index: 2500;
+			display: none;
+		}
+		&__menu-wrap {
+			margin-left: 120px;
+		}
+	}
+
+	/*ASIDE-BTN*/
+	.aside-btn {
+		display: block;
+	}
+
+	/*-----------------
+		SIDEBAR 1200px
+	------------------*/
+	.sidebar {
+		position: absolute;
+		background: #fff;
+		z-index: 2500;
+		height: ~"calc(99% - 80px)";
+		left: -340px;
+		top: 80px;
+		display: none;
+	}
+
+	.clients {
+		padding-top: 15px;
+	}
+
+	/*CLIENT-ITEM*/
+	.client-item {
+		padding-left: 25px;
+	}
+
+	/*-----------------
+		MESSENGER 1200px
+	------------------*/
+	.messenger {
+		width: 100%;
+		float: none;
+	}
+
+	/*DIALOGUE*/
+	.dialogue {
+		margin-top: 0;
+		padding-top: 60px;
+		height: ~"calc(100% - 80px)";
+	}
+	
+}
+
+
+/*------------------------------
+	RESPONSIVE max-width: 991px
+-------------------------------*/
+
+
+@media only screen and (max-width: 991px) {
+
+
+	/*-----------------
+		HEADER 991px
+	------------------*/
+	.header {
+		&__menu-wrap {
+			margin: 0;
+			width: 100%;
+		}
+		&__logo-wrap {
+			height: 60px;
+			line-height: 60px;
+			width: 311px;
+		}
+	}
+
+	/*ASIDE-BTN*/
+	.aside-btn {
+		position: absolute;
+		left: 0px;
+		top: 9px;
+		width: 50px;
+		height: 40px;
+		&:before {
+			transform: scale(0.9);
+		}
+	}
+
+	/*HAMB-BTN*/
+	.hamb-btn {
+		display: block;
+	}
+
+	/*TOP-MENU*/
+	.top-menu {
+		position: absolute;
+		width: 290px;
+		top: 60px;
+		right: 0;
+		z-index: 2500;
+		display: none;
+		background-image: linear-gradient(86deg, #5b86e5, #36d1dc);
+		&__item {
+			float: none;
+		}
+		&__link {
+			height: 60px;
+			line-height: 60px;
+			font-size: 0.8em;
+			text-align: left;
+			padding-left: 55px;
+			position: relative;
+		}
+		&__count {
+			left: 20px;
+			top: 20px;
+			position: absolute;
+		}
+	}
+
+	/*USER*/
+	.user {
+		&--top {
+			float: right;
+			height: 60px;
+			margin-right: 50px;
+		}
+	}
+
+	/*LOGOUT*/
+	.logout {
+		right: 65px;
+		top: 18px;
+	}
+
+
+	/*-----------------
+			SIDEBAR 991px
+	------------------*/
+	.sidebar {
+		top: 60px;
+		width: 310px;
+		height: ~"calc(99% - 55px)";
+		.ps__scrollbar-y-rail {
+			opacity: 1 !important;
+		}
+	}
+
+	/*ASIDE-NAV*/
+	.aside-nav {
+		&__mess,
+		&__search {
+			height: 60px;
+			line-height: 60px;
+			width: 120px;
+		}
+		&__search {
+			width: 189px;
+			padding-left: 45px;
+			&:after {
+				top: 20px;
+				right: 25px;
+			}
+		}
+	}
+
+	/*CLIENTS*/
+	.clients {
+		padding-top: 5px;
+		height: ~"calc(100% - 60px)";
+	}
+
+	/*CLIENT-ITEM*/
+	.client-item {
+		padding-left: 15px;
+		padding-top: 10px;
+		padding-bottom: 5px;
+		&__ava{
+			margin-right: 15px;
+		}
+		&__info {
+			vertical-align: middle;
+			margin-top: -5px;
+		}
+	}
+
+
+	/*-----------------
+		MESSENGER 991px
+	------------------*/
+	.messenger {
+		height: ~"calc(100% - 60px)";
+		&__messages-wrap {
+			padding: 20px 0;
+		}
+	}
+
+	/*STATUS*/
+	.status {
+		text-align: right;
+		&__item {
+			text-align: center;
+		}
+	}
+
+	/*DIALOGUE*/
+	.dialogue {
+		.ps__scrollbar-y-rail {
+			right: 5px !important;
+		}
+	}
+
+
+	/*INBOX*/
+	.inbox {
+		display: none !important;
+	}
+	
+}
+
+
+/*------------------------------
+	RESPONSIVE max-width: 767px
+-------------------------------*/
+
+
+@media only screen and (max-width: 767px) {
+
+	/*-----------------
+		MESSENGER 767px
+	------------------*/
+
+	/*STATUS*/
+	.status {
+		&__item {
+			min-width: 20px;
+			width: 20px;
+			height: 20px;
+			padding: 0;
+		}
+		i {
+			display: none;
+		}
+	}
+
+	/*DIALOGUE*/
+	.dialogue {
+		padding-top: 50px;
+		&__date {
+			height: 50px;
+			line-height: 50px;
+			padding: 0 20px;
+		}
+		.ps__scrollbar-y-rail {
+			right: 3px !important;
+		}
+	}
+
+	/*PROGRESS*/
+	.progress {
+		min-height: 50px;
+		padding: 10px 20px;
+		&__date {
+			height: 50px;
+			line-height: 50px;
+			left: 20px;
+			top: 0px;
+		}
+	}
+
+
+	/*MESSAGE*/
+	.message {
+		padding-left: 70px;
+		padding-right: 70px;
+		&--out {
+			padding-left: 15px;
+		}
+		&__ava {
+			left: 15px;
+		}
+		&__time {
+			top: 10px;
+			right: 25px;
+		}
+		&__txt {
+			padding: 10px 15px;
+		}
+	}
+	
+
+}
+
+
+/*------------------------------
+	RESPONSIVE max-width: 500px
+-------------------------------*/
+
+@media only screen and (max-width: 500px) {
+
+	/*USER*/
+	.user {
+		&--top {
+			float: none;
+			margin-left: 50px;
+			padding-right: 35px;
+		}
+	}
+
+	/*ENTER-MESS*/
+	.enter-mess {
+		&:after {
+			right: 125px;
+		}
+		&__btn-wrap {
+			padding-right: 25px;
+			width: 130px;
+		}
+		&__upload {
+			margin-right: 10px;
+		}
+		&__text {
+			width: ~"calc(100% - 130px)";
+		}
+	}
+
+	/*LOGOUT*/
+	.logout {
+		right: 55px;
+	}
+
+	/*HAMB-BTN*/
+	.hamb-btn {
+		right: 10px;
+	}
+
+	/*ASIDE-BTN*/
+	.aside-btn {
+		width: 48px;
+	}
+
+
+}
