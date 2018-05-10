@@ -1,39 +1,23 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Switch} from "react-router-dom";
+import Route from "react-router-dom/Route"
 
 //import data
 import {mainData} from "./../../data/mainData";
-
-
-//временные функции, будут заменены на mainData
-const Foo_1 = function(){
-    return <h2>c001</h2>;
-}
-
-const Foo_2 = function(){
-    return <h2>c002</h2>;
-}
-
-const Foo_3 = function(){
-    return <h2>c003</h2>;
-}
-
-
 
 
 export class Dialogue extends React.Component {
     render() {
         return (
             <article className="dialogue">
-                {/*<Router>*/}
-                    {/*<Switch>*/}
-                        {/*<Route path="/c001" render={() => <MessagesStory messagesId={0}/>}/>*/}
-                        {/*<Route path="/c002" render={() => <MessagesStory messagesId={1}/>}/>*/}
-                        {/*<Route path="/c003" render={() => <MessagesStory messagesId={2}/>}/>*/}
-                        {/*<Route path="/c004" render={() => <MessagesStory messagesId={3}/>}/>*/}
-                        {/*<Route path="/c005" render={() => <MessagesStory messagesId={4}/>}/>*/}
-                    {/*</Switch>*/}
-                {/*</Router>*/}
+                <Switch>
+                    <Route path="/" exact render={() => <MessagesStory messagesId={0}/>}/>
+                    <Route path="/c001" render={() => <MessagesStory messagesId={0}/>}/>
+                    <Route path="/c002" render={() => <MessagesStory messagesId={1}/>}/>
+                    <Route path="/c003" render={() => <MessagesStory messagesId={2}/>}/>
+                    <Route path="/c004" render={() => <MessagesStory messagesId={3}/>}/>
+                    <Route path="/c005" render={() => <MessagesStory messagesId={4}/>}/>
+                </Switch>
             </article>
         )
     }
