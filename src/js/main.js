@@ -4,14 +4,13 @@ $(function () {
     var sidebar = $(".clients"),
         dialogue = $(".dialogue");
 
-    // Ps.initialize(sidebar[0]);
-    // Ps.initialize(dialogue[0]);
+    Ps.initialize(sidebar[0]);
+    Ps.initialize(dialogue[0]);
 
+    console.log(123123)
 
     //Авторесайз для textarea
     (function () {
-
-        console.log($('#messText'))
         autosize($("#messText")[0]);
     })();
 

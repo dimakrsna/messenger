@@ -1,15 +1,8 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {BrowserRouter as Router} from "react-router-dom";
-// import {Router} from 'react-router';
 import {Redirect} from 'react-router';
-
-import createBrowserHistory from 'history/createBrowserHistory'
-
-const history = createBrowserHistory();
-
-//import data
 import {mainData} from "./../../data/mainData";
+import PerfectScrollbar from 'perfect-scrollbar';
 
 export class ContactsList extends React.Component {
     constructor(props) {
@@ -17,15 +10,20 @@ export class ContactsList extends React.Component {
         this.state = {contacts: mainData}
     }
 
-    redirectToPath = () => {
-        this.props.history.push(`/target`)
+    // shouldComponentUpdate() {
+    //     return false;
+    // }
+
+    componentDidMount(){
+        this.clientsRef = this.refs.clientsRef;
+        const ps = new PerfectScrollbar(this.clientsRef);
     }
 
     render() {
         let self = this;
 
         return (
-            <div>
+            <div className="clients" ref="clientsRef">
                 {this.state.contacts.map(function (item) {
                     return (
                         <NavLink to={"/" + item.id} className="client-item" key={item.id}>

@@ -10,7 +10,6 @@ $(function () {
 
     //Авторесайз для textarea
     (function () {
-        console.log(123)
         // autosize($("#messText")[0]);
     })();
 
