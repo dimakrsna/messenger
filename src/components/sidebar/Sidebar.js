@@ -10,8 +10,7 @@ export class Sidebar extends React.Component {
 
     componentDidMount(){
         this.sidebarRef = this.refs.sidebarRef;
-        const ps = new PerfectScrollbar(this.sidebarRef);
-        console.log(ps);
+        new PerfectScrollbar(this.sidebarRef);
     }
 
     render() {

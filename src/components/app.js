@@ -15,11 +15,11 @@ export class App extends React.Component {
     render(){
         return (
             <Router>
-                <main className="main">
+                <div className="content-wrap">
                     <Header/>
                     <Sidebar/>
                     <Messenger/>
-                </main>
+                </div>
             </Router>
         )
     }

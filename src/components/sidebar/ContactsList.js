@@ -2,7 +2,8 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import {Redirect} from 'react-router';
 import {mainData} from "./../../data/mainData";
-import PerfectScrollbar from 'perfect-scrollbar';
+// import PerfectScrollbar from 'perfect-scrollbar';
+// import $ from 'jquery';
 
 export class ContactsList extends React.Component {
     constructor(props) {
@@ -10,13 +11,10 @@ export class ContactsList extends React.Component {
         this.state = {contacts: mainData}
     }
 
-    // shouldComponentUpdate() {
-    //     return false;
-    // }
-
     componentDidMount(){
         this.clientsRef = this.refs.clientsRef;
-        const ps = new PerfectScrollbar(this.clientsRef);
+        // $(this.clientsRef).fadeOut(1000);
+        // const ps = new PerfectScrollbar(this.clientsRef);
     }
 
     render() {
@@ -26,7 +24,7 @@ export class ContactsList extends React.Component {
             <div className="clients" ref="clientsRef">
                 {this.state.contacts.map(function (item) {
                     return (
-                        <NavLink to={"/" + item.id} className="client-item" key={item.id}>
+                        <NavLink to={"/" + item.id} className="client-item" key={item.id} activeClassName="active">
                             <img className="client-item__ava" src={item.avatar} alt={item.name}/>
                             <p className="client-item__info">
                                 <span className="client-item__name">{item.name}</span>

@@ -56,6 +56,11 @@ body {
   height: 100%;
 }
 
+.root-wrap,
+.content-wrap {
+  height: 100%;
+}
+
 article,
 aside,
 main,
