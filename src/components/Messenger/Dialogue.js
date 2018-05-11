@@ -9,7 +9,7 @@ import {mainData} from "./../../data/mainData";
 
 export class Dialogue extends React.Component {
     componentDidMount(){
-        new PerfectScrollbar(this.refs.dialogueRef)
+        new PerfectScrollbar(this.refs.dialogueRef);
     }
 
     render() {
