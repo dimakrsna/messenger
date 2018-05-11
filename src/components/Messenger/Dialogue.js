@@ -1,15 +1,20 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch} from "react-router-dom";
-import Route from "react-router-dom/Route"
+import { Switch } from "react-router-dom";
+import Route from "react-router-dom/Route";
+import PerfectScrollbar from 'perfect-scrollbar';
 
 //import data
 import {mainData} from "./../../data/mainData";
 
 
 export class Dialogue extends React.Component {
+    componentDidMount(){
+        new PerfectScrollbar(this.refs.dialogueRef)
+    }
+
     render() {
         return (
-            <article className="dialogue">
+            <article className="dialogue" ref="dialogueRef">
                 <Switch>
                     <Route path="/" exact render={() => <MessagesStory messagesId={0}/>}/>
                     <Route path="/c001" render={() => <MessagesStory messagesId={0}/>}/>

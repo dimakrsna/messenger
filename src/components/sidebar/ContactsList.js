@@ -1,9 +1,7 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
-import {Redirect} from 'react-router';
-import {mainData} from "./../../data/mainData";
-// import PerfectScrollbar from 'perfect-scrollbar';
-// import $ from 'jquery';
+import { NavLink } from "react-router-dom";
+import { mainData } from "./../../data/mainData";
+import PerfectScrollbar from 'perfect-scrollbar';
 
 export class ContactsList extends React.Component {
     constructor(props) {
@@ -12,9 +10,7 @@ export class ContactsList extends React.Component {
     }
 
     componentDidMount(){
-        this.clientsRef = this.refs.clientsRef;
-        // $(this.clientsRef).fadeOut(1000);
-        // const ps = new PerfectScrollbar(this.clientsRef);
+        new PerfectScrollbar(this.refs.clientsRef);
     }
 
     render() {
