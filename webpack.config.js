@@ -27,12 +27,14 @@ module.exports = {
                         loader: 'image-webpack-loader',
                         options: {
                             bypassOnDebug: true,
+                            emitFile: false
                         },
                     },
                 ],
             }
         ]
     },
+    mode: 'production',
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
@@ -45,7 +47,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        contentBase: './dist',
-        hot: true
+        contentBase: './src',
+        hot: true,
+        historyApiFallback: true
     }
 };

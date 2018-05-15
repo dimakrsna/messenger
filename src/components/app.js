@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router} from "react-router-dom";
+import { HashRouter } from 'react-router-dom'
 
 //import Header component
 import {Header} from "./header/Header";
@@ -15,13 +16,13 @@ export class App extends React.Component {
 
     render(){
         return (
-            <Router>
+            <HashRouter history={Router.history}>
                 <div className="content-wrap">
                     <Header/>
                     <Sidebar/>
                     <Messenger/>
                 </div>
-            </Router>
+            </HashRouter>
         )
     }
 }
