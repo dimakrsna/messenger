@@ -48,4 +48,24 @@ $(function () {
         });
     })();
 
+    function searchInputClear(){
+        var $input = $('.search__input'),
+            $label = $('.search__icon'),
+            placeholderValue = $input.attr('placeholder');
+
+        $label.on('click', function(){
+            $input.attr('placeholder', '');
+        });
+
+        $input.on('click', function(){
+            $input.attr('placeholder', '');
+        });
+
+        $input.on('blur', function(){
+            $input.attr('placeholder', placeholderValue);
+        })
+    }
+
+    searchInputClear();
+
 });
