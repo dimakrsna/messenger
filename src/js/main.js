@@ -1,71 +1,82 @@
-$(function () {
+var APP = {
+    textareaHolderToggle: function(){
+        var $textarea = $("#messText"),
+            $placeholder = $('#placeholer');
 
-    //Инициализация скролбара
-    var sidebar = $(".clients"),
-        dialogue = $(".dialogue");
+        if($placeholder.length){
+            $placeholder.on("click", function(){
+                $(this).fadeOut();
+                $textarea.focus();
+            });
+            $textarea.on('focus', function(){
+                $placeholder.fadeOut(200);
+            });
+            $textarea.on('blur', function(){
+                if(!$(this).val().length){
+                    $placeholder.fadeIn(200);
+                }
+            })
+        }
+    },
 
-    // Ps.initialize(sidebar[0]);
-    // Ps.initialize(dialogue[0]);
+    searchInputClear: function(){
+        var $input = $('.search__input'),
+            $label = $('.search__icon'),
+            placeholderValue = $input.attr('placeholder');
 
-    // console.log(123123)
+        if($input.length){
+            $label.on('click', function(){
+                $input.attr('placeholder', '');
+            });
 
-    //Авторесайз для textarea
-    (function () {
-        // autosize($("#messText")[0]);
-    })();
+            $input.on('click', function(){
+                $input.attr('placeholder', '');
+            });
 
+            $input.on('blur', function(){
+                $input.attr('placeholder', placeholderValue);
+            })
+        }
+    },
 
-    //Sidebar показываем/скрываем
-    (function () {
-        var asideBtn = $("#asideBtn"),
-            isOpen = false,
-            sidebar = $(".header__logo-wrap, .sidebar");
+    hamburgerMenuToggle: function(){
+        var $hambBtn = $("#hambBtn"),
+            $topMenu = $(".top-menu"),
+            isOpen = false;
 
-        asideBtn.on("click", function () {
+        $hambBtn.on("click", function () {
+            (!isOpen) ? $topMenu.slideDown() : $topMenu.slideUp();
+            isOpen = !isOpen;
+        });
+    },
+
+    sidebarToggle: function(){
+        var $asideBtn = $("#asideBtn"),
+            $sidebar = $(".header__logo-wrap, .sidebar"),
+            isOpen = false;
+
+        $asideBtn.on("click", function () {
             if (!isOpen) {
-                asideBtn.css("transform", "rotate(0)");
-                sidebar.show().animate({"left": "0px"}, 400);
+                $asideBtn.css("transform", "rotate(0)");
+                $sidebar.show().animate({"left": "0px"}, 400);
             } else {
-                asideBtn.css("transform", "rotate(180deg)");
-                sidebar.animate({"left": "-340px"}, 400, function () {
+                $asideBtn.css("transform", "rotate(180deg)");
+                $sidebar.animate({"left": "-340px"}, 400, function () {
                     $(this).hide();
                 });
             }
             isOpen = !isOpen;
         });
+    },
 
-    })();
-
-    //Hamburger показываем/скрываем
-    (function () {
-        var hambBtn = $("#hambBtn"),
-            topMenu = $(".top-menu"),
-            isOpen = false;
-
-        hambBtn.on("click", function () {
-            (!isOpen) ? topMenu.slideDown() : topMenu.slideUp();
-            isOpen = !isOpen;
-        });
-    })();
-
-    function searchInputClear(){
-        var $input = $('.search__input'),
-            $label = $('.search__icon'),
-            placeholderValue = $input.attr('placeholder');
-
-        $label.on('click', function(){
-            $input.attr('placeholder', '');
-        });
-
-        $input.on('click', function(){
-            $input.attr('placeholder', '');
-        });
-
-        $input.on('blur', function(){
-            $input.attr('placeholder', placeholderValue);
-        })
+    init: function(){
+        this.textareaHolderToggle();
+        this.searchInputClear();
+        this.hamburgerMenuToggle();
+        this.sidebarToggle();
     }
+};
 
-    searchInputClear();
-
-});
+$(function(){
+    APP.init();
+})
