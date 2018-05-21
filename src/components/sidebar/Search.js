@@ -1,5 +1,32 @@
 import React from 'react';
 import {mainData} from "./../../data/mainData";
+import { createStore } from 'redux';
+
+const initialState = mainData;
+
+function reducer(state = initialState, action){
+    switch(action.type){
+        case 'FILTERED': {
+            return {
+                ...state, this: action.payload
+            }
+        }
+    }
+    return state;
+}
+const store = createStore(reducer);
+
+const filteredData = {
+    type: 'FILTERED',
+    payload: {}
+}
+
+console.log(store.getState());
+
+store.dispatch(filteredData);
+
+console.log(store.getState());
+
 
 export class Search extends React.Component {
     constructor(props){
@@ -14,11 +41,8 @@ export class Search extends React.Component {
         let value = event.target.value,
             filtered;
 
-        // console.log(value);
-        // console.log(state);
-
         filtered = state.mainData.filter(function(item){
-                return item.name.toLowerCase().search(value) !== -1;
+                return item.name.toLowerCase().search(value.toLowerCase()) !== -1;
             });
 
         console.log(filtered);
