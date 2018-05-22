@@ -1,24 +1,19 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { mainData } from "./../../data/mainData";
 import PerfectScrollbar from 'perfect-scrollbar';
 
-export class ContactsList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {contacts: mainData}
-        }
 
+export class ContactsList extends React.Component {
     componentDidMount(){
         new PerfectScrollbar(this.refs.clientsRef);
     }
 
     render() {
-        let self = this;
+        let listData = (this.props.state.filtered) ? this.props.state.filtered : this.props.state;
 
         return (
             <div className="clients" ref="clientsRef">
-                {this.state.contacts.map(function (item) {
+                {listData.map(function (item) {
                     return (
                         <NavLink to={"/" + item.id} className="client-item" key={item.id} activeClassName="active">
                             <img className="client-item__ava" src={item.avatar} alt={item.name}/>

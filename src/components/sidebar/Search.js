@@ -4,36 +4,34 @@ import { createStore } from 'redux';
 
 const initialState = mainData;
 
-function reducer(state = initialState, action){
+//reducer
+function rootReducer(state = initialState, action){
     switch(action.type){
-        case 'FILTERED': {
+        case ACTION_FILTERED_CONTACT_LIST: {
             return {
-                ...state, this: action.payload
+                ...state, filtered: action.payload
             }
         }
     }
     return state;
 }
-const store = createStore(reducer);
 
+const ACTION_FILTERED_CONTACT_LIST = 'ACTION_FILTERED_CONTACT_LIST';
+
+//store
+const store = createStore(rootReducer);
+
+//action
 const filteredData = {
-    type: 'FILTERED',
-    payload: {}
-}
-
-console.log(store.getState());
-
-store.dispatch(filteredData);
-
-console.log(store.getState());
-
+    type: ACTION_FILTERED_CONTACT_LIST,
+    payload: null
+};
 
 export class Search extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             mainData: mainData,
-            // filteredData: []
         };
     }
 
@@ -45,9 +43,8 @@ export class Search extends React.Component {
                 return item.name.toLowerCase().search(value.toLowerCase()) !== -1;
             });
 
-        console.log(filtered);
-
-        // this.setState({filteredData: filtered});
+        filteredData.payload = filtered;
+        store.dispatch(filteredData);
     }
 
     render() {
@@ -61,3 +58,4 @@ export class Search extends React.Component {
     }
 }
 
+export { store };
