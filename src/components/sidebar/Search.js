@@ -1,31 +1,6 @@
 import React from 'react';
 import {mainData} from "./../../data/mainData";
-import { createStore } from 'redux';
-
-const initialState = mainData;
-
-//reducer
-function rootReducer(state = initialState, action){
-    switch(action.type){
-        case ACTION_FILTERED_CONTACT_LIST: {
-            return {
-                ...state, filtered: action.payload
-            }
-        }
-    }
-    return state;
-}
-
-const ACTION_FILTERED_CONTACT_LIST = 'ACTION_FILTERED_CONTACT_LIST';
-
-//store
-const store = createStore(rootReducer);
-
-//action
-const filteredData = {
-    type: ACTION_FILTERED_CONTACT_LIST,
-    payload: null
-};
+import { store, filteredData } from './../../store/contactListFilter'
 
 export class Search extends React.Component {
     constructor(props){
@@ -43,6 +18,7 @@ export class Search extends React.Component {
                 return item.name.toLowerCase().search(value.toLowerCase()) !== -1;
             });
 
+        //from: './../../store/contactListFilter'
         filteredData.payload = filtered;
         store.dispatch(filteredData);
     }
@@ -58,4 +34,5 @@ export class Search extends React.Component {
     }
 }
 
+//export store
 export { store };

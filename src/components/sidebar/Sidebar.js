@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
     return {...store, state}
 }
 
-const WrappedContactsList = connect(mapStateToProps)(ContactsList)
+const WrappedContactsList = connect(mapStateToProps)(ContactsList);
 
 export class Sidebar extends React.Component {
     render() {
