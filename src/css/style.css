@@ -837,6 +837,60 @@ figure embed {
     font-style: normal;
 }
 
+/*LOGIN*/
+
+.login {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding-bottom: 10px;
+    transform: translate(-50%, -50%);
+    max-width: 290px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.10);
+}
+
+.login__input,
+.login__btn {
+    display: block;
+    height: 25px;
+    width: 90%;
+    margin: 0 auto 10px;
+    padding: 0 10px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    background: transparent;
+}
+
+.login__btn {
+    line-height: 1;
+    color: #000;
+}
+
+.login__btn:hover {
+    border-color: transparent;
+    background: #36d1dc;
+    color: #fff;
+}
+
+.login__text {
+    display: block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
+    background-image: linear-gradient(86deg, #5b86e5, #36d1dc);
+}
+
+.login__help {
+    display: block;
+    font-size: 0.8em;
+    color: red;
+    text-align: center;
+}
+
 /*------------------------------
 	RESPONSIVE max-width: 1200px
 -------------------------------*/
@@ -1019,12 +1073,18 @@ figure embed {
     }
 
     .search {
-        height: 50px;
-        line-height: 50px;
+        height: 60px;
+        padding-top: 5px;
+        line-height: 60px;
     }
 
+    .search__input {
+        display: block;
+    }
+
+
     .search__icon {
-        top: 15px;
+        top: 20px;
     }
 
     /*CLIENTS*/
@@ -1151,6 +1211,16 @@ figure embed {
 
     .message__txt {
         padding: 10px 15px;
+    }
+
+    .search {
+        height: 50px;
+        padding-top: 0;
+        line-height: 50px;
+    }
+
+    .search__icon {
+        top: 15px;
     }
 }
 
