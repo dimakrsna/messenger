@@ -34,8 +34,8 @@ export class LoginForm extends React.Component {
             this.setState({formText: 'Неверно введенный логин или пароль'})
             return false
         } if(checkLogin[0].login == name && checkPass[0].pass == pass){
-                // console.log(store.getState());
-                store.dispatch()
+                console.log(store.getState());
+                // store.dispatch()
                 this.setState({formText: ''})
         } else {
             this.setState({formText: 'Неверно введенный логин или пароль'})
