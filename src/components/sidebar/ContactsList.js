@@ -10,7 +10,7 @@ export class ContactsList extends React.Component {
 
     render() {
 
-        let listData = (this.props.state.filtered) ? this.props.state.filtered : this.props.state.clients;
+        let listData = (this.props.state.clients.filtered) ? this.props.state.clients.filtered : this.props.state.clients;
 
         return (
             <div className="clients" ref="clientsRef">

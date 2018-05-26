@@ -1,6 +1,7 @@
 import React from 'react';
-import {ContactsList} from "./ContactsList";
-import {Search, store} from "./Search";
+import { ContactsList } from "./ContactsList";
+import { Search } from "./Search";
+import { store } from './../../store/reducers/rootReducer'
 import { connect, Provider } from 'react-redux';
 
 const mapStateToProps = (state) => {

@@ -1,13 +1,13 @@
 import React from 'react';
-import {mainData} from "./../../data/mainData";
-// import { store, filteredData } from './../../store/contactListFilter'
-import { store, contactListFilterAction } from './../../store/reducers/rootReducer'
+import { mainData } from "./../../data/mainData";
+import { store } from './../../store/reducers/rootReducer';
+import { contactListFilterAction } from './../../store/actions/contactListFilterAction';
 
 export class Search extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            mainData: mainData.clients,
+            mainData: mainData,
         };
     }
 
@@ -19,9 +19,7 @@ export class Search extends React.Component {
                 return item.name.toLowerCase().search(value.toLowerCase()) !== -1;
             });
 
-        //from: './../../store/contactListFilter'
-        contactListFilterAction.payload = filtered;
-        store.dispatch(contactListFilterAction);
+        store.dispatch(contactListFilterAction(filtered));
     }
 
     render() {
@@ -34,6 +32,3 @@ export class Search extends React.Component {
         )
     }
 }
-
-//export store
-export { store };

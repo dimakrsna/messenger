@@ -1,23 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
-import { HashRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom';
+import { connect, Provider } from 'react-redux';
+import { store } from './../store/reducers/rootReducer';
 
-//import Header component
 import { Header } from "./header/Header";
-
-//import Sidebar component
 import { Sidebar } from "./sidebar/Sidebar";
-
-//import Messenger component
 import { Messenger } from "./Messenger/Messenger";
-
-//import LoginForm component
 import { LoginForm } from "./login/login";
 
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.payload
+    }
+};
+
+const WrappedLoginForm = connect(mapStateToProps)(LoginForm);
 
 export class App extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
     render(){
-        if(!false){
+        if(false){
             return (
                 <HashRouter history={Router.history}>
                     <div className="content-wrap">
@@ -28,7 +34,11 @@ export class App extends React.Component {
                 </HashRouter>
             )
         } else {
-            return <LoginForm />
+            return (
+                <Provider store={store}>
+                    <WrappedLoginForm />
+                </Provider>
+            )
         }
 
     }

@@ -1,13 +1,12 @@
 import { createStore  } from 'redux';
 import { combineReducers  } from 'redux';
 
-import { mainData } from "./../../data/mainData";
-
-import { contactListFilterAction } from './../actions/contactListFilterAction';
 import { contactListFilterReducer } from './contactListFilterReducer';
+import { loginCheckReducer } from './../reducers/loginCheckReducer';
 
-export const initialState = mainData;
+const rootReducer = combineReducers({
+    clients: contactListFilterReducer,
+    currentUser: loginCheckReducer
+})
 
-const store = createStore(contactListFilterReducer);
-
-export { store, contactListFilterAction }
+export const store = createStore(rootReducer);

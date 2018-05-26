@@ -1,6 +1,7 @@
 import React from 'react';
 import { usersData } from "../../data/usersData";
 import { store } from "../../store/reducers/rootReducer";
+import { userIsLogin, userNotFound } from './../../store/actions/loginCheckAction';
 
 export class LoginForm extends React.Component {
     constructor(props){
@@ -17,11 +18,11 @@ export class LoginForm extends React.Component {
         let name = this.refs.name.value,
             pass = this.refs.pass.value,
             checkLogin,
-            checkPass;
+            checkPass,
+            currentUser;
 
         checkLogin = this.state.usersData.filter(function(item){
             return item.login.search(name) !== -1;
-
         });
 
         if(checkLogin){
@@ -32,13 +33,20 @@ export class LoginForm extends React.Component {
 
         if (!checkLogin.length || !checkPass.length || !name.length || !pass.length) {
             this.setState({formText: 'Неверно введенный логин или пароль'})
+            store.dispatch(userNotFound);
+            console.log(store.getState());
             return false
+
         } if(checkLogin[0].login == name && checkPass[0].pass == pass){
-                console.log(store.getState());
-                // store.dispatch()
-                this.setState({formText: ''})
+            currentUser = checkPass[0];
+            store.dispatch(userIsLogin(currentUser));
+            console.log(store.getState());
+            this.setState({formText: ''})
+
         } else {
             this.setState({formText: 'Неверно введенный логин или пароль'})
+            store.dispatch(userNotFound);
+            console.log(store.getState());
             return false
         }
     }
