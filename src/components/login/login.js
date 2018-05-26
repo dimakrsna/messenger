@@ -1,6 +1,6 @@
 import React from 'react';
 import { usersData } from "../../data/usersData";
-import { store } from "../../store/contactListFilter";
+import { store } from "../../store/reducers/rootReducer";
 
 export class LoginForm extends React.Component {
     constructor(props){

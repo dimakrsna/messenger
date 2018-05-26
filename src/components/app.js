@@ -17,7 +17,7 @@ import { LoginForm } from "./login/login";
 
 export class App extends React.Component {
     render(){
-        if(false){
+        if(!false){
             return (
                 <HashRouter history={Router.history}>
                     <div className="content-wrap">

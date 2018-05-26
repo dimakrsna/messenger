@@ -1,6 +1,7 @@
 import React from 'react';
 import {mainData} from "./../../data/mainData";
-import { store, filteredData } from './../../store/contactListFilter'
+// import { store, filteredData } from './../../store/contactListFilter'
+import { store, contactListFilterAction } from './../../store/reducers/rootReducer'
 
 export class Search extends React.Component {
     constructor(props){
@@ -19,8 +20,8 @@ export class Search extends React.Component {
             });
 
         //from: './../../store/contactListFilter'
-        filteredData.payload = filtered;
-        store.dispatch(filteredData);
+        contactListFilterAction.payload = filtered;
+        store.dispatch(contactListFilterAction);
     }
 
     render() {
