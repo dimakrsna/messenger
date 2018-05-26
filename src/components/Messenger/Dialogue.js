@@ -33,7 +33,7 @@ export class Dialogue extends React.Component {
 class MessagesStory extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {currentContact: mainData};
+        this.state = {currentContact: mainData.clients};
     }
 
     OutboxMsg(item) {

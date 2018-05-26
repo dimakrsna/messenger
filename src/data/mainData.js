@@ -1,4 +1,4 @@
-const mainData = [
+const _mainData = [
     {
         name: "Violet Hayes",
         avatar: "/img/users/ava-01.jpg",
@@ -287,7 +287,7 @@ const mainData = [
     },
 ];
 
-const _mainData = {
+const mainData = {
     clients: [
         {
             name: "Violet Hayes",
@@ -577,8 +577,6 @@ const _mainData = {
         },
     ]
 }
-
-
 
 
 export { mainData }
