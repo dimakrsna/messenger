@@ -34,19 +34,19 @@ export class LoginForm extends React.Component {
         if (!checkLogin.length || !checkPass.length || !name.length || !pass.length) {
             this.setState({formText: 'Неверно введенный логин или пароль'})
             store.dispatch(userNotFound);
-            console.log(store.getState());
+            // console.log(store.getState());
             return false
 
         } if(checkLogin[0].login == name && checkPass[0].pass == pass){
             currentUser = checkPass[0];
             store.dispatch(userIsLogin(currentUser));
-            console.log(store.getState());
+            // console.log(store.getState());
             this.setState({formText: ''})
 
         } else {
             this.setState({formText: 'Неверно введенный логин или пароль'})
             store.dispatch(userNotFound);
-            console.log(store.getState());
+            // console.log(store.getState());
             return false
         }
     }

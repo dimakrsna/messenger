@@ -20,10 +20,35 @@ const WrappedLoginForm = connect(mapStateToProps)(LoginForm);
 export class App extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            isLogin: this.props.currentUser
+        }
+    }
+
+    checkStore(){
+        let self = this,
+            currentState = store.getState();
+
+        console.log(self.state);
+        console.log(currentState.currentUser);
+
+        store.subscribe(function(){
+
+            if (currentState.currentUser){
+                if(currentState.currentUser.currentUser){
+                    self.setState({isLogin: currentState.currentUser});
+                }
+            } else {
+                self.setState({isLogin: false});
+            }
+
+        });
     }
 
     render(){
-        if(false){
+        this.checkStore();
+
+        if(this.state.isLogin){
             return (
                 <HashRouter history={Router.history}>
                     <div className="content-wrap">
