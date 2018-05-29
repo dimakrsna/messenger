@@ -29,9 +29,6 @@ export class App extends React.Component {
         let self = this,
             currentState = store.getState();
 
-        console.log(self.state);
-        console.log(currentState.currentUser);
-
         store.subscribe(function(){
 
             if (currentState.currentUser){
@@ -43,6 +40,9 @@ export class App extends React.Component {
             }
 
         });
+
+        // console.log(self.state);
+        // console.log(currentState.currentUser);
     }
 
     render(){
