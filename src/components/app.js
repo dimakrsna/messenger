@@ -46,19 +46,17 @@ export class App extends React.Component {
 
     shouldComponentUpdate(){
         let currentStore = store.getState();
-        console.log(currentStore.currentUser);
 
         if(currentStore.currentUser.currentUser){
             console.log('обновили');
             return true
         } else {
-            console.log('не обновили')
+            console.log('не обновили');
             return false
         }
     }
 
     render(){
-        console.log('render');
         let currentStore = store.getState()
 
         if(currentStore.currentUser){

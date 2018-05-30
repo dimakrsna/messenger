@@ -13,7 +13,8 @@ export class User extends React.Component {
     logOut(e){
         e.preventDefault();
         store.dispatch(userNotFound);
-        console.log('logOut')
+        console.log('logOut');
+        console.log(store.getState());
     }
 
     render() {

@@ -50,7 +50,6 @@ export class LoginForm extends React.Component {
 
     addDefaultState(){
         store.dispatch(userNotFound);
-        console.log('addDefaultState');
     }
 
     componentWillMount(){

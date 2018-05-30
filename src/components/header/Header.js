@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
         currentUser: state.payload
     }
 };
+
 const WrappedUser = connect(mapStateToProps)(User);
 
 
