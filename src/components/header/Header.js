@@ -1,9 +1,20 @@
 import React from 'react';
+import { store } from './../../store/reducers/rootReducer';
+import { connect, Provider } from 'react-redux';
 
 //import Header components
 import {MainMenu} from "./MainMenu";
 import {MainLogo} from "./MainLogo";
 import {User} from "./User";
+
+
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.payload
+    }
+};
+const WrappedUser = connect(mapStateToProps)(User);
+
 
 export class Header extends React.Component {
     render() {
@@ -17,7 +28,9 @@ export class Header extends React.Component {
                 <nav className="header__menu-wrap">
                     <MainMenu/>
                 </nav>
-                <User/>
+                <Provider store={store}>
+                    <WrappedUser />
+                </Provider>
             </header>
         )
     }

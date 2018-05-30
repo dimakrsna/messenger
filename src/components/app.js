@@ -21,7 +21,7 @@ export class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            isLogin: this.props.currentUser
+            isLogin: this.props.currentUser || false
         }
     }
 
@@ -30,7 +30,6 @@ export class App extends React.Component {
             currentState = store.getState();
 
         store.subscribe(function(){
-
             if (currentState.currentUser){
                 if(currentState.currentUser.currentUser){
                     self.setState({isLogin: currentState.currentUser});
@@ -38,17 +37,31 @@ export class App extends React.Component {
             } else {
                 self.setState({isLogin: false});
             }
-
         });
+    }
 
-        // console.log(self.state);
-        // console.log(currentState.currentUser);
+    componentWillMount(){
+        this.checkStore();
+    }
+
+    shouldComponentUpdate(){
+        let currentStore = store.getState();
+        console.log(currentStore.currentUser);
+
+        if(currentStore.currentUser.currentUser){
+            console.log('обновили');
+            return true
+        } else {
+            console.log('не обновили')
+            return false
+        }
     }
 
     render(){
-        this.checkStore();
+        console.log('render');
+        let currentStore = store.getState()
 
-        if(this.state.isLogin){
+        if(currentStore.currentUser){
             return (
                 <HashRouter history={Router.history}>
                     <div className="content-wrap">
@@ -65,6 +78,5 @@ export class App extends React.Component {
                 </Provider>
             )
         }
-
     }
 }

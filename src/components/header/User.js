@@ -1,5 +1,6 @@
 import React from 'react';
 import { store } from './../../store/reducers/rootReducer';
+import { userNotFound } from './../../store/actions/loginCheckAction';
 
 export class User extends React.Component {
     constructor(props){
@@ -11,8 +12,8 @@ export class User extends React.Component {
 
     logOut(e){
         e.preventDefault();
-        // this.setState({currentUser: false});
-        // console.log(this.state)
+        store.dispatch(userNotFound);
+        console.log('logOut')
     }
 
     render() {
