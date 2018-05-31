@@ -54,6 +54,10 @@ export class App extends React.Component {
         }
     }
 
+    componentDidMount(){
+
+    }
+
     render(){
         let currentStore = store.getState();
 
