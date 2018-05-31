@@ -1,7 +1,12 @@
 # Messenger
-Учебный проект (React, Redux).
 
 Стек технологий: **React, Redux, ES6, Webpack**.
+
+### Что реализовано:
+
+- Авторизация пользователя (admin 123);
+- Поиск в списке контактов;
+- Роутинг (История переписки);
 
 Посмотреть [демо](https://dimakrsna.github.io/messenger-test/dist/index.html)
 

@@ -11,10 +11,9 @@ export class User extends React.Component {
     }
 
     logOut(e){
-        e.preventDefault();
+        // e.preventDefault();
         store.dispatch(userNotFound);
         console.log('logOut');
-        console.log(store.getState());
     }
 
     render() {
@@ -29,7 +28,7 @@ export class User extends React.Component {
                         <span className="user__company">{entity}</span>
                     </p>
                 </div>
-                <a href="#" className="logout" onClick={(e)=>{this.logOut(e)}}></a>
+                <a href="/" className="logout" onClick={(e)=>{this.logOut(e)}}></a>
             </div>
         )
     }
