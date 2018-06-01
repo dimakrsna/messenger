@@ -8,6 +8,7 @@ import { Header } from "./header/Header";
 import { Sidebar } from "./sidebar/Sidebar";
 import { Messenger } from "./Messenger/Messenger";
 import { LoginForm } from "./login/login";
+import { MAIN } from './../js/main';
 
 const mapStateToProps = (state) => {
     return {
@@ -48,6 +49,7 @@ export class App extends React.Component {
         let currentStore = store.getState();
 
         if(currentStore.currentUser.currentUser){
+
             return true
         } else {
             return false
@@ -55,7 +57,7 @@ export class App extends React.Component {
     }
 
     componentDidMount(){
-
+        MAIN.init();
     }
 
     render(){
@@ -80,3 +82,4 @@ export class App extends React.Component {
         }
     }
 }
+

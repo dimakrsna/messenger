@@ -1,4 +1,6 @@
-var APP = {
+import $ from 'jquery';
+
+export var MAIN = {
     textareaHolderToggle: function(){
         var $textarea = $("#messText"),
             $placeholder = $('#placeholer');
@@ -74,9 +76,6 @@ var APP = {
         this.searchInputClear();
         this.hamburgerMenuToggle();
         this.sidebarToggle();
+        console.log('MAIN init');
     }
 };
-
-$(function(){
-    APP.init();
-})
