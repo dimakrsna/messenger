@@ -76,6 +76,6 @@ export var MAIN = {
         this.searchInputClear();
         this.hamburgerMenuToggle();
         this.sidebarToggle();
-        console.log('MAIN init');
+        // console.log('MAIN init');
     }
 };

@@ -49,7 +49,6 @@ export class App extends React.Component {
         let currentStore = store.getState();
 
         if(currentStore.currentUser.currentUser){
-
             return true
         } else {
             return false
@@ -57,7 +56,20 @@ export class App extends React.Component {
     }
 
     componentDidMount(){
-        MAIN.init();
+        let interval,
+            initMainJs;
+
+        initMainJs = () => {
+            let currentStore = store.getState();
+            if(currentStore.currentUser.currentUser){
+                MAIN.init();
+                clearInterval(interval);
+            }
+        }
+
+        interval = setInterval(function(){
+            initMainJs();
+        }, 1000);
     }
 
     render(){
