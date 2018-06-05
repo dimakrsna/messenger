@@ -51,7 +51,7 @@ export class App extends React.Component {
         if(currentStore.currentUser.currentUser){
             return true
         } else {
-            return false
+            return true
         }
     }
 
